@@ -13,81 +13,24 @@
 
         body {
             font-family: Arial, sans-serif;
-            height: 100vh;
-            background-image: url('BV.jpg');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
         }
 
-        .form-container {
-            background: transparent;
-            padding: 30px 40px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 900px;
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
         }
 
-        .form-container h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #fff;
-            font-size: 32px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        form {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .form-group {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .form-group input {
+        .image-section {
             width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #164b51;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.9);
         }
 
-        .form-group input::placeholder {
-            color: #999;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #164b51;
-            background: rgba(255, 255, 255, 1);
-        }
-
-        .submit-btn {
-            padding: 14px 40px;
-            background-color: transparent;
-            color: #164b51;
-            border: 2px solid #164b51;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            flex-shrink: 0;
-        }
-
-        .submit-btn:hover {
-            background-color: rgba(22, 75, 81, 0.2);
-            border-color: #164b51;
+        .image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .whatsapp-icon {
@@ -118,22 +61,65 @@
             fill: white;
         }
 
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+
+        .info-pill {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 25px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 3px solid #164b51;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .info-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-pill svg {
+            width: 30px;
+            height: 30px;
+            fill: #164b51;
+            flex-shrink: 0;
+        }
+
+        .info-text {
+            color: #164b51;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
         @media (max-width: 768px) {
-            .form-container {
-                padding: 20px;
-            }
-
-            form {
+            .contact-info {
                 flex-direction: column;
-                gap: 20px;
+                gap: 10px;
+                padding: 30px 20px;
             }
 
-            .form-group {
-                width: 100%;
+            .info-pill {
+                padding: 10px 20px;
             }
 
-            .submit-btn {
-                width: 100%;
+            .info-pill svg {
+                width: 25px;
+                height: 25px;
+            }
+
+            .info-text {
+                font-size: 12px;
             }
 
             .whatsapp-icon {
@@ -151,16 +137,25 @@
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <form id="contactForm">
-            <div class="form-group">
-                <input type="text" id="address" name="address" placeholder="Adres" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" id="phone" name="phone" placeholder="Telefon Numarası" required>
-            </div>
-            <button type="submit" class="submit-btn">Gönder</button>
-        </form>
+    <div class="container">
+        <div class="image-section">
+            <img src="BV.jpg" alt="Construction">
+        </div>
+
+        <div class="contact-info">
+            <a href="https://maps.app.goo.gl/kfUu85mrqxSnfcxK9" target="_blank" class="info-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+                </svg>
+                <div class="info-text">Alaçatı Mh. 11500<br>Sk. No:115 Çeşme</div>
+            </a>
+            <a href="tel:+905491301313" class="info-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+                </svg>
+                <div class="info-text">0549 130 13 13</div>
+            </a>
+        </div>
     </div>
 
     <a href="https://wa.me/905491301313" target="_blank" class="whatsapp-icon" title="Chat on WhatsApp">
@@ -169,47 +164,5 @@
         </svg>
     </a>
 
-    <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzFSjWRImtqwE84OGgNaie9xFPrMxRamFFoo1M6r8tkNV70BhCBf0s-Mc_NSsZogYlsPQ/exec';
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const address = document.getElementById('address').value;
-            const phone = document.getElementById('phone').value;
-            const submitBtn = document.querySelector('.submit-btn');
-
-            // Disable button and show loading state
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Gönderiliyor...';
-
-            // Send data to Google Sheets
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    address: address,
-                    phone: phone
-                })
-            })
-            .then(() => {
-                // Success
-                alert('Teşekkürler! Bilgileriniz başarıyla gönderildi.');
-                this.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Gönder';
-            })
-            .catch((error) => {
-                // Error
-                alert('Bir hata oluştu. Lütfen tekrar deneyin.');
-                console.error('Error:', error);
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Gönder';
-            });
-        });
-    </script>
 </body>
 </html>
