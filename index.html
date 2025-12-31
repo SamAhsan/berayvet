@@ -170,16 +170,45 @@
     </a>
 
     <script>
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzFSjWRImtqwE84OGgNaie9xFPrMxRamFFoo1M6r8tkNV70BhCBf0s-Mc_NSsZogYlsPQ/exec';
+
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const address = document.getElementById('address').value;
             const phone = document.getElementById('phone').value;
+            const submitBtn = document.querySelector('.submit-btn');
 
-            alert('Form submitted!\nAddress: ' + address + '\nPhone: ' + phone);
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Gönderiliyor...';
 
-            // Reset form
-            this.reset();
+            // Send data to Google Sheets
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    address: address,
+                    phone: phone
+                })
+            })
+            .then(() => {
+                // Success
+                alert('Teşekkürler! Bilgileriniz başarıyla gönderildi.');
+                this.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Gönder';
+            })
+            .catch((error) => {
+                // Error
+                alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+                console.error('Error:', error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Gönder';
+            });
         });
     </script>
 </body>
